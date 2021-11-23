@@ -57,8 +57,8 @@ class Juejin {
     const { cookie, baseUrl, apiURL } = config;
     let { data } = await axios({
       url: baseUrl + apiURL.checkIn,
-      method: "get",
-      Headers: { Cookie: cookie },
+      method: "post",
+      headers: { Cookie: cookie },
     });
     if (data.err_no) {
       console.log("签到失败");
@@ -108,7 +108,7 @@ class Juejin {
     let data = await axios({
       url: baseUrl + apiURL.getLotterConfig,
       method: "get",
-      Headers: { Cookie: cookie },
+      headers: { Cookie: cookie },
     });
     if (data.err_no) {
       return { error: true, isDraw: false };
